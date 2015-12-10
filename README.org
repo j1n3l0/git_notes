@@ -1,0 +1,9 @@
+#+TITLE: concourse.ci
+
+* set up a repository for testing (local checkout is fine)
+* create the check, in and out scripts to do the git_notes functionality
+* "check" task:
+** poll git repository for new commits (or maybe use a local checkout)
+** return the commits since the last commit with a note
+* "in" task:
+* "out" task:
