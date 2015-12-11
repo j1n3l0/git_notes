@@ -1,1 +1,11 @@
 #!/bin/bash
+
+set -eux
+
+read input
+
+branch=`echo "$input" | jq .source.branch | perl -ple 's/"//g'`
+commits=`git log --oneline --reverse --format="%h,%N" origin/$branch`
+commit=`echo $commits | perl -E 'say((sort { @$b <=> @$a } map [split ","], split /\s+/, <>)[0][0])'`
+
+echo `echo $input | jq ".version.ref=\"$commit\""`
