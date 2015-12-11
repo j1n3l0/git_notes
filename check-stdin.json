@@ -1,8 +1,1 @@
-{
-  "source": {
-    "uri": "git://some-uri",
-    "branch": "develop",
-    "private_key": "..."
-  },
-  "version": { "ref": "61cebf" }
-}
+{"source":{"uri":"git@github.com:j1n3l0/git_notes.git","branch":"master","private_key":"..."}}
