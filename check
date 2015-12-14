@@ -5,8 +5,7 @@ set -eux
 read input
 
 branch=`jq --argjson i $input -r -n '$i | .source.branch'`
-commits=`git log --oneline --reverse --format="%h,%N" origin/$branch`
-commit=`echo $commits | perl -E 'say((sort { @$b <=> @$a } map [split ","], split /\s+/, <>)[0][0])'`
+commit=`git log --oneline --reverse --format="%h,%N" origin/$branch | perl -E 'say((sort { @$b <=> @$a } map [split ","], split /\s+/, <>)[0][0])'`
 
 jq --arg c $commit --argjson i $input -n '$i + {"version":{"ref":$c}}'
 
